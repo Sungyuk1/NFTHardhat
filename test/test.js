@@ -3,7 +3,7 @@ const { hexStripZeros } = require('ethers/lib/utils')
 
 describe("MyContract", function() {
 
-    it("Should return correct name", async function (){
+    it("Should return correct name and symbol", async function (){
         //hre - allows us to get the actual class for the contract
         const MyContract = await hre.ethers.getContractFactory("MyContract")
         //instantiate contract by deploying it
@@ -13,7 +13,7 @@ describe("MyContract", function() {
         await myContractDeployed.deployed()
 
         expect(await myContractDeployed.name()).to.equal("MyContractName")
-        
+        expect(await myContractDeployed.symbol()).to.equal("MCN")
 
     })
 })
